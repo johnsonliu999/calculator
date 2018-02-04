@@ -2,10 +2,6 @@ defmodule CalcTest do
   use ExUnit.Case
   doctest Calc
 
-  test "greets the world" do
-    assert Calc.hello() == :world
-  end
-
   test "2 + 3" do
     assert Calc.eval("2 + 3") == Code.eval_string("2 + 3") |> (elem 0)
   end
@@ -24,5 +20,9 @@ defmodule CalcTest do
 
   test "5 / 3 + 6 / 7" do
     assert Calc.eval("5 / 3 + 6 / 7") == 1
+  end
+
+  test "10 / (0 - 5) + 6" do
+    assert Calc.eval("10 / (0 - 5) + 6") == 4
   end
 end
